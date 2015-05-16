@@ -5,7 +5,7 @@ namespace ShitSteam
 {
     public partial class Startup
     {
-	    public static Container ResolveContainer(HttpConfiguration configuration, Container container = null)
+	    public Container ResolveContainer(HttpConfiguration configuration, Container container = null)
 	    {
 		    if(container == null)
 				container = new Container();
@@ -14,7 +14,7 @@ namespace ShitSteam
 		    container.Verify();
 		    return container;
 	    }
-	    public static void RegisterDependencies(Container container)
+	    public void RegisterDependencies(Container container)
 	    {
 	    }
     }

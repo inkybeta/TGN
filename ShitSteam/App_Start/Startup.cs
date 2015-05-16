@@ -23,11 +23,10 @@ namespace ShitSteam
 
 			app.CreatePerOwinContext(() => new ApplicationDatabase());
 			app.CreatePerOwinContext<UserManager<User>>(
-				(IdentityFactoryOptions<UserManager<User>> options, IOwinContext context) =>
+				(options, context) =>
 					new UserManager<User>(new UserStore<User>(context.Get<ApplicationDatabase>())));
 
 			ConfigureAuthentication(app);
-			WebApiConfig.Register(httpConfig);
 			app.UseWebApi(httpConfig);
 			// For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=316888
 		}

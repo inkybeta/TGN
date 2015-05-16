@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -37,7 +38,7 @@ namespace ShitSteam.Infastructure.OAuth
 					else
 						context.Validated();
 				}
-				catch (Exception e)
+				catch (SqlException e)
 				{
 					context.SetError("server_error", e.Message);
 					context.Rejected();
